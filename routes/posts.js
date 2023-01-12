@@ -12,13 +12,13 @@ router.get('/', async (req,res) => {
         });
         res.json(posts);
     } catch (err){
-        res.status(500).json({massage: err.message})
+        res.status(500).json({message: err.message})
     };
 });
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
-
+    
     try {
         const post = await Post.findByPk(id, {
             include: [{ model: User, as: 'user', attributes: ['nickname'] }],
@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
 
         res.json(post);
     } catch (err){
-        res.status(500).json({ massage: err.massage})
+        res.status(500).json({ message: err.message})
     }
 })
 
@@ -77,7 +77,7 @@ router.delete('/:id', async(req, res) => {
         const post = await Post.destroy({ where : { id }});
         res.json(post)
     } catch (err){
-        res.status(500).json({massage:err.massage});
+        res.status(500).json({message:err.message});
     }
 })
 

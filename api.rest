@@ -10,6 +10,9 @@ GET http://localhost:3000/posts/1
 
 ###
 
+GET http://localhost:3000/comments
+
+###
 POST http://localhost:3000/signup
 Content-Type: application/json
 
@@ -25,9 +28,19 @@ POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "title": "banana milk",
+    "title": "banana",
     "content": "is great",
     "userId": 1
+}
+
+###
+
+POST http://localhost:3000/comments/3
+Content-Type: application/json
+
+{
+    "content" : "javascript",
+    "userId" : 1
 }
 
 ###
@@ -39,3 +52,20 @@ Content-Type: application/json
     "title": "berry milk",
     "content": "is great"
 }
+
+###
+
+PATCH http://localhost:3000/comments/1
+Content-Type: application/json
+
+{
+    "content": "mongo"
+}
+
+###
+
+DELETE http://localhost:3000/posts/2
+
+###
+
+DELETE http://localhost:3000/comments/3
