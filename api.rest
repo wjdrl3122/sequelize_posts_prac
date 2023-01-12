@@ -1,0 +1,41 @@
+GET http://localhost:3000/users
+
+###
+
+GET http://localhost:3000/posts
+
+###
+
+GET http://localhost:3000/posts/1
+
+###
+
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+    "nickname": "banana",
+    "password": "password1234",
+    "confirm": "password1234"
+}
+
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "banana milk",
+    "content": "is great",
+    "userId": 1
+}
+
+###
+
+PATCH http://localhost:3000/posts/1
+Content-Type: application/json
+
+{
+    "title": "berry milk",
+    "content": "is great"
+}

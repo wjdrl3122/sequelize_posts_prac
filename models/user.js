@@ -9,11 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
+    static associate({ Post }) {
+      this.hasMany(Post, {foreignKey: 'userId', as: 'posts'} )
     }
   }
-  User.init({
+  User.init(
+    {
     nickname: {
       type: DataTypes.STRING,
       allowNull:false
@@ -22,10 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull:false
     },
-    confirm: {
-      type: DataTypes.STRING,
-      allowNull:false
-    }
+    confirm: DataTypes.STRING
   }, {
     sequelize,
     tableName: 'users',
